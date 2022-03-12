@@ -5,12 +5,10 @@ import Together from './components/Together'
 function App() {
   return (
     <div className="App">
-      <Together header ={ "Header Prop" }>
-        <p>This is a child</p>
-        <p>This is another child</p>
-        <p>This is even another child</p>
-        <button onClick={ ()=> alert("This button has been clicked!") }>Click Me</button>
-      </Together>
+      <Together person= { {firstName:"Jane", lastName: "Doe", age: 45, hairColor: "Black"} } />
+      <Together person= { {firstName:"John", lastName: "Smith", age: 88, hairColor: "Brown"} } />
+      <Together person= { {firstName:"Millard", lastName: "Fillmore", age: 50, hairColor: "Brown"} } />
+      <Together person= { {firstName:"Maria", lastName: "Smith", age: 62, hairColor: "Brown"} } />
     </div>
   );
 }
