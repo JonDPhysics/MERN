@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const UserForm = (props) =>{
-    const [firstName, setFirstName,] = useState("")
+    const [firstName, setFirstName] = useState("")
     const [firstNameError, setFirstNameError,] = useState("")
     const [lastName, setLastName] = useState("")
     const [lastNameError, setLastNameError,] = useState("")
