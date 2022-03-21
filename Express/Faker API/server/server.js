@@ -14,6 +14,9 @@ class Users {
     }
 }
 
+const newUser = new Users()
+console.log(newUser)
+
 class Company{
     constructor(){
         this.companyId = 1
@@ -28,3 +31,26 @@ class Company{
     }
 }
 
+const newCompany = new Company()
+console.log(newCompany)
+
+app.use( express.json() )
+app.use( express.urlencoded({ extended: true }) )
+
+app.get("/api/users/new", (res) =>{
+    res.json( newUser )
+})
+
+app.get("/api/companies/new", (res) =>{
+    res.json( newCompany )
+})
+
+app.get("/api/user/company", (res) =>{
+    res.json(
+        newUser,
+        newCompany
+    )
+})
+
+
+app.listen(port)
