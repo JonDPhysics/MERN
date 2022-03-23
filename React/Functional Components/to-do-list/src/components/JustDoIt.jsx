@@ -6,9 +6,9 @@ const JustDoIt = (props) => {
     return(
         <ol>
             { props.doIt.map( (item, i) =>
-                    <li key = { i }>
-                        { item } 
-                    </li> ) }
+                <li key = { i }>
+                    { item } 
+                </li> ) }
         </ol>
     )
 }
