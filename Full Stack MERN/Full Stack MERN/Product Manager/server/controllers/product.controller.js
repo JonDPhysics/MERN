@@ -36,7 +36,7 @@ module.exports.updateProduct = (req, res) =>{
         {new: true, runValidators: true}
     )
         .then(response => res.json(response))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 // delete

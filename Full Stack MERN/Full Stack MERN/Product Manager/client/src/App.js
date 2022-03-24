@@ -1,9 +1,9 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import ProductForm from "./views/ProductForm";
-import AllProducts from "./views/AllProduct";
+
 import EditProduct from "./views/EditProduct";
 import OneProduct from "./views/OneProduct";
+import Main from "./views/Main";
 
 
 
@@ -11,12 +11,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <fieldset>
-        <legend><h1><strong>Product Manager</strong></h1></legend>
         <Switch>
-          <Route exact path="/products">
-            <ProductForm/>
-            <AllProducts/>
+          <Route exact path="/">
+            <Main/>
           </Route>
           <Route exact path="/products/:id/edit">
             <EditProduct />
@@ -25,7 +22,6 @@ function App() {
             <OneProduct/>
           </Route>
         </Switch>
-      </fieldset>
     </BrowserRouter>
   );
 }
