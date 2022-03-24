@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const ProductForm = (props) =>{
+const ProductForm = () =>{
     // keep track of what is being typed via useState hook
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
-    const [aProduct, setAProduct] = useState()
+
 
 
     // handler when the form is submitted
@@ -19,9 +19,10 @@ const ProductForm = (props) =>{
             price,
             description
         })
-            .then(res => setAProduct(res.data))
+            .then(res =>{
+                console.log(res.data)
+            })
             .catch(err => console.log(err))
-        props.onNewProduct(aProduct)
     }
     // onChange to update title, price, and description
     return (
@@ -39,7 +40,7 @@ const ProductForm = (props) =>{
                 <input type="text" onChange={(e) => setDescription(e.target.value)} value={ description }/>
             </div>
             <div>
-                <button>Submit</button>
+                <button>Create</button>
             </div>
         </form>
     )
