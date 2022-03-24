@@ -30,7 +30,7 @@ const AllAuthors = () => {
 
     return (
         <fieldset>
-            <Link to="/authors/create">Add a author</Link>
+            <Link to="/authors/create">Add an author</Link>
             <legend><h3>We have quotes by:</h3></legend>
             <table>
                 <thead>
