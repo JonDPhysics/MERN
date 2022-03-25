@@ -17,10 +17,7 @@ module.exports.one = (req, res) => {
 
 // create
 module.exports.create = (req, res) => {
-    const {} = req.body // Insert required document(s)
-    Project.create({
-        // Insert required document(s)
-    })
+    Project.create(req.body)
         .then(project => res.json(project))
         .catch(err => res.json(err))
 }
