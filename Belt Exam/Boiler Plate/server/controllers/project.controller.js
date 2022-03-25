@@ -17,9 +17,19 @@ module.exports.one = (req, res) => {
 
 // create
 module.exports.create = (req, res) => {
-    Project.create(req.body)
+    const { name, image, position, phrase, pegLeg, eyePatch, hookHand, chests } = req.body
+    Project.create({
+        name,
+        image,
+        position,
+        phrase,
+        pegLeg,
+        eyePatch,
+        hookHand,
+        chests
+    })
         .then(project => res.json(project))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 // update
@@ -34,7 +44,7 @@ module.exports.update = (req, res) => {
         .catch(err => res.status(400).json(err))
 }
 
-// delete one
+// delete
 module.exports.delete = (req, res) => {
     Project.deleteOne({ _id: req.params.id })
         .then(response => res.json(response))

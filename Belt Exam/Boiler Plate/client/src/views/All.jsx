@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-import { Link, useHistory } from 'react-router-dom' 
+import { useHistory } from 'react-router-dom' 
 
 const All = () => {
     const [projects, setProjects] = useState([])
@@ -23,37 +23,41 @@ const All = () => {
         .catch(err=>console.log(err))
     }
 
-    const editHandler = (editId) => {
-        history.push(`/edit/${editId}/`)
+    const oneHandler = (oneId) => {
+        history.push(`/one/${oneId}/`)
     }
 
+    const addHandler = () => {
+        history.push('/create')
+    }
 
     return (
         <fieldset>
-            <Link to="/create"></Link>
-            <legend><h3></h3></legend>
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
+            <legend>
+                <h3>Pirate Crew</h3>
+                <button onClick={addHandler}>Add Pirate</button>
+            </legend>
                 {
                     projects &&
                     projects.map((project, i)=>(
-                        <tr key={i}>
-                        { <td>{ project. }</td> }{/* Insert required document */}
-                        <td>
-                            <button onClick={()=>editHandler(project._id)}>Edit</button>
-                            <button onClick={()=>deleteHandler(project._id)}>Delete</button>
-                        </td>
-                        </tr>
+                        <table key={i}>
+                            <thead>
+                                <tr>
+                                    <th>{ project.name }</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src={ project.image } alt="A pirate" /></td>
+                                    <td>
+                                        <button onClick={()=>oneHandler(project._id)}>View Pirate</button>
+                                        <button onClick={()=>deleteHandler(project._id)}>Walk the Plank</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     ))
                 }
-                </tbody>
-            </table>
         </fieldset>
     )
 }

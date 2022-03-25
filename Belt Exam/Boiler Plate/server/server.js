@@ -11,7 +11,7 @@ app.use(express.json(), express.urlencoded({ extended: true }), cors())
 
 // get all the routes
 
-require("./routes/project.route") // Change 'project'
+require("./routes/project.route")(app)
 
 // Listen to the port
 app.listen(port, () => console.log(`Listening on port: ${port}`))
